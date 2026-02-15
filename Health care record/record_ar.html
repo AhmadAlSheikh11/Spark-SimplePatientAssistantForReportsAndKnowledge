@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MED CLOUD • SPARK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Style/main.css">
+</head>
+<body class="ar">
+
+  <nav class="nav">
+    <div class="nav__brand">
+      <div class="mark" aria-hidden="true"><span class="mark__dot"></span></div>
+      <div class="brand">
+        <div class="brand__name">MED CLOUD</div>
+        <div class="brand__tag">سجل آمن • تقارير • أعراض</div>
+      </div>
+    </div>
+
+    <div class="nav__actions">
+      <a class="chip" href="/ar">الرئيسية</a>
+      <a class="chip" id="goAI" href="/med_search_ar?id=00000000">MED SEARCH AI</a>
+      <a class="chip" href="/">EN</a>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="container">
+      <div class="card page">
+        <div class="page__head">
+          <div>
+            <h2 class="h2">السجل الطبي</h2>
+            <p class="muted">رقم الهوية: <span class="id" id="patientId">—</span></p>
+          </div>
+          <button class="btn btn--soft" data-action="clear-ui">مسح الواجهة</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <section class="card sub">
+            <div class="sub__head">
+              <h3 class="h3">رفع التقارير</h3>
+              <p class="muted">صور، PDF، DOC، TXT (متعدد)</p>
+            </div>
+
+            <label class="uploader">
+              <input id="reportFiles" type="file" multiple accept="image/*,.pdf,.doc,.docx,.txt">
+              <div class="uploader__box">
+                <div class="uploader__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 16V6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M8 10l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="uploader__title">اضغط للرفع</div>
+                  <div class="uploader__sub">تحت رقم الهوية</div>
+                </div>
+              </div>
+            </label>
+
+            <div id="preview" class="preview"></div>
+            <div id="filesList" class="files"></div>
+          </section>
+
+          <section class="card sub">
+            <div class="sub__head">
+              <h3 class="h3">الأعراض</h3>
+              <p class="muted">اكتب الوصف (مدة، مكان، شدة).</p>
+            </div>
+
+            <textarea id="symptoms" class="textarea" rows="10" placeholder="مثال: صداع منذ يومين + حرارة خفيفة..."></textarea>
+
+            <div class="row">
+              <button class="btn btn--primary" id="saveSymptoms">حفظ</button>
+              <button class="btn btn--outline" id="loadRecord">تحديث</button>
+            </div>
+
+            <div id="status" class="status"></div>
+
+            <div class="note">
+              <span class="note__spark" aria-hidden="true"></span>
+              بعد الحفظ افتح <b>MED SEARCH AI</b> بنفس رقم الهوية.
+            </div>
+
+            <div class="row">
+              <a class="btn btn--primary" id="goAI2" href="/med_search_ar?id=00000000">فتح MED SEARCH AI</a>
+              <a class="btn btn--soft" href="/ar">العودة لـ SPARK</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner"><span>© 2026 SPARK</span></div>
+  </footer>
+
+  <script src="Style/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPARK • Institution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style/main.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__brand">
+      <div class="mark" aria-hidden="true"><span class="mark__dot"></span></div>
+      <div class="brand">
+        <div class="brand__name">SPARK</div>
+        <div class="brand__tag">Institution Portal</div>
+      </div>
+    </div>
+    <div class="nav__actions">
+      <a class="chip" href="/">← Home</a>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="h2" id="title">Institution • Sign Up</h2>
+        <p class="muted" id="subtitle">Hospital / clinic account (demo).</p>
+      </div>
+
+      <div class="grid2">
+        <section class="card page">
+          <div class="tool__top">
+            <div class="icon icon--mix" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 21V7l8-4 8 4v14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21v-6h6v6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="icon__spark" aria-hidden="true"></span>
+            </div>
+            <span class="pill">Institution</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <form id="instForm" class="stack">
+            <label class="tiny muted">Institution Name</label>
+            <input class="input" id="iName" placeholder="Hospital / Clinic name">
+
+            <label class="tiny muted">Email</label>
+            <input class="input" id="iEmail" placeholder="admin@hospital.com" autocomplete="email">
+
+            <label class="tiny muted">Location</label>
+            <input class="input" id="iLoc" placeholder="City / Address (optional)">
+
+            <label class="tiny muted">Password</label>
+            <input class="input" id="iPass" type="password" placeholder="••••••••" autocomplete="new-password">
+
+            <div class="row">
+              <button class="btn btn--primary" type="submit" id="submitBtn">Create Account</button>
+              <a class="btn btn--outline" href="/auth_institution?mode=login">Login instead</a>
+            </div>
+
+            <div class="status" id="status"></div>
+          </form>
+        </section>
+
+        <aside class="card sub">
+          <h3 class="h3">Institution features (demo)</h3>
+          <p class="muted">Manage staff and services. Later we can connect to a real admin dashboard.</p>
+          <div class="note">
+            <span class="note__spark"></span>
+            UI-only now — can be expanded to role-based access control later.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <script src="Style/main.js"></script>
+</body>
+</html>

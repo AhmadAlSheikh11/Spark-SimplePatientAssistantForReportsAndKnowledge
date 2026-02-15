@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MED SEARCH AI • SPARK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Style/main.css">
+</head>
+<body class="ar">
+
+  <nav class="nav">
+    <div class="nav__brand">
+      <div class="mark" aria-hidden="true"><span class="mark__dot"></span></div>
+      <div class="brand">
+        <div class="brand__name">MED SEARCH AI</div>
+        <div class="brand__tag">توجيه أولي (تجريبي) • ليس تشخيصًا</div>
+      </div>
+    </div>
+
+    <div class="nav__actions">
+      <a class="chip" href="/ar">الرئيسية</a>
+      <a class="chip" id="goCloud" href="/record_ar?id=00000000">MED CLOUD</a>
+      <a class="chip" href="/">EN</a>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="container">
+      <div class="card page">
+        <div class="page__head">
+          <div>
+            <h2 class="h2">اسأل المساعد</h2>
+            <p class="muted">رقم الهوية: <span class="id" id="patientId">—</span></p>
+          </div>
+          <a class="btn btn--soft" href="/ar">عودة</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <section class="card sub">
+            <div class="sub__head">
+              <h3 class="h3">الأعراض (اختياري)</h3>
+              <p class="muted">تساعد المساعد يرد أفضل.</p>
+            </div>
+
+            <textarea id="symptoms" class="textarea" rows="10" placeholder="مثال: التهاب حلق + حرارة منذ 3 أيام..."></textarea>
+
+            <div class="row">
+              <button class="btn btn--primary" id="saveSymptoms">حفظ في السجل</button>
+              <button class="btn btn--outline" id="loadSymptoms">جلب من السجل</button>
+            </div>
+
+            <div id="status" class="status"></div>
+
+            <div class="note">
+              <span class="note__spark" aria-hidden="true"></span>
+              للأعراض الشديدة (ألم صدر/ضيق تنفس شديد) توجّه للطوارئ.
+            </div>
+          </section>
+
+          <section class="card sub">
+            <div class="sub__head">
+              <h3 class="h3">المحادثة</h3>
+              <p class="muted">اكتب سؤالك وسيظهر الرد.</p>
+            </div>
+
+            <div class="chat" id="chatLog"></div>
+
+            <form class="chat__form" id="chatForm">
+              <input class="input chat__input" id="chatInput" placeholder="اكتب سؤالك..." autocomplete="off">
+              <button class="btn btn--primary" type="submit">إرسال</button>
+            </form>
+
+            <div class="tiny muted">
+              أداة معلومات عامة فقط (تجريبية).
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner"><span>© 2026 SPARK</span></div>
+  </footer>
+
+  <script src="Style/main.js"></script>
+</body>
+</html>

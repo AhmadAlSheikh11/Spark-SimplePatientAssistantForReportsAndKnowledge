@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPARK • MED PAIN VISUALS 3D</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Style/main.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__brand">
+      <div class="mark" aria-hidden="true"><span class="mark__dot"></span></div>
+      <div class="brand">
+        <div class="brand__name">SPARK</div>
+        <div class="brand__tag">MED PAIN VISUALS 3D</div>
+      </div>
+    </div>
+    <div class="nav__actions">
+      <a class="chip" href="/">← Home</a>
+      <a class="chip" href="/record">MED CLOUD</a>
+      <a class="chip" href="/med_search">MED SEARCH AI</a>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="h2">3D Pain Visuals</h2>
+        <p class="muted">Demo UI: select pain area, intensity, and notes. (3D viewer placeholder)</p>
+      </div>
+
+      <div class="grid2">
+        <!-- Left: Viewer -->
+        <section class="card page">
+          <div class="tool__top">
+            <div class="icon icon--mix" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2l9 5-9 5-9-5 9-5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 7v10l9 5V12L3 7Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 7v10l-9 5V12l9-5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="icon__spark" aria-hidden="true"></span>
+            </div>
+            <span class="pill">3D • Demo</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="viewer">
+            <div class="viewer__placeholder">
+              <div class="viewer__title">3D Body Model (Placeholder)</div>
+              <div class="muted tiny">Later: WebGL / Three.js model with clickable regions.</div>
+              <div class="viewer__pulse" aria-hidden="true"></div>
+            </div>
+
+            <div class="note" style="margin-top:12px;">
+              <span class="note__spark"></span>
+              For now, choose a body region from the right panel and we will “highlight” it here.
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: Controls -->
+        <aside class="card sub">
+          <h3 class="h3">Pain Details</h3>
+          <p class="muted">Fill basic info to describe pain clearly.</p>
+
+          <div class="divider"></div>
+
+          <label class="tiny muted">Body Area</label>
+          <select class="input" id="area">
+            <option value="Head">Head</option>
+            <option value="Neck">Neck</option>
+            <option value="Chest">Chest</option>
+            <option value="Back">Back</option>
+            <option value="Abdomen">Abdomen</option>
+            <option value="Left Arm">Left Arm</option>
+            <option value="Right Arm">Right Arm</option>
+            <option value="Left Leg">Left Leg</option>
+            <option value="Right Leg">Right Leg</option>
+          </select>
+
+          <label class="tiny muted">Intensity (1–10)</label>
+          <input class="input" id="intensity" type="number" min="1" max="10" value="5">
+
+          <label class="tiny muted">Pain Type</label>
+          <select class="input" id="type">
+            <option>Sharp</option>
+            <option>Dull</option>
+            <option>Burning</option>
+            <option>Stabbing</option>
+            <option>Throbbing</option>
+            <option>Cramping</option>
+          </select>
+
+          <label class="tiny muted">Duration</label>
+          <select class="input" id="duration">
+            <option>Minutes</option>
+            <option>Hours</option>
+            <option>Days</option>
+            <option>Weeks</option>
+          </select>
+
+          <label class="tiny muted">Notes</label>
+          <textarea class="textarea" id="notes" rows="4" placeholder="Describe what makes it worse/better..."></textarea>
+
+          <div class="row">
+            <button class="btn btn--primary" id="save">Save</button>
+            <button class="btn btn--outline" id="clear">Clear</button>
+          </div>
+
+          <div class="status" id="status"></div>
+
+          <div class="divider"></div>
+
+          <div class="pill" style="display:inline-flex;">Preview</div>
+          <div class="note" id="preview" style="margin-top:10px;">
+            <span class="note__spark"></span>
+            Area: <b>Head</b> • Intensity: <b>5</b> • Type: <b>Sharp</b>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 SPARK • 3D Demo UI</span>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const area = document.getElementById("area");
+      const intensity = document.getElementById("intensity");
+      const type = document.getElementById("type");
+      const duration = document.getElementById("duration");
+      const notes = document.getElementById("notes");
+      const preview = document.getElementById("preview");
+      const status = document.getElementById("status");
+
+      function render(){
+        preview.innerHTML = '<span class="note__spark"></span>' +
+          'Area: <b>' + area.value + '</b> • ' +
+          'Intensity: <b>' + intensity.value + '</b> • ' +
+          'Type: <b>' + type.value + '</b> • ' +
+          'Duration: <b>' + duration.value + '</b>' +
+          (notes.value.trim() ? '<br><span class="muted tiny">Notes:</span> ' + notes.value.trim() : '');
+      }
+
+      document.getElementById("save").addEventListener("click", () => {
+        const data = {
+          area: area.value,
+          intensity: intensity.value,
+          type: type.value,
+          duration: duration.value,
+          notes: notes.value
+        };
+        localStorage.setItem("spark_pain3d", JSON.stringify(data));
+        status.textContent = "Saved.";
+      });
+
+      document.getElementById("clear").addEventListener("click", () => {
+        localStorage.removeItem("spark_pain3d");
+        notes.value = "";
+        intensity.value = 5;
+        area.value = "Head";
+        type.value = "Sharp";
+        duration.value = "Minutes";
+        status.textContent = "";
+        render();
+      });
+
+      [area, intensity, type, duration, notes].forEach(el => el.addEventListener("input", render));
+
+      // load
+      try{
+        const saved = JSON.parse(localStorage.getItem("spark_pain3d") || "null");
+        if(saved){
+          area.value = saved.area || "Head";
+          intensity.value = saved.intensity || 5;
+          type.value = saved.type || "Sharp";
+          duration.value = saved.duration || "Minutes";
+          notes.value = saved.notes || "";
+        }
+      }catch(e){}
+      render();
+    })();
+  </script>
+</body>
+</html>

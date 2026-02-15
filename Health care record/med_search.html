@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MED SEARCH AI • SPARK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Style/main.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__brand">
+      <div class="mark" aria-hidden="true"><span class="mark__dot"></span></div>
+      <div class="brand">
+        <div class="brand__name">MED SEARCH AI</div>
+        <div class="brand__tag">Initial guidance (demo) • Not a diagnosis</div>
+      </div>
+    </div>
+
+    <div class="nav__actions">
+      <a class="chip" href="/">Home</a>
+      <a class="chip" id="goCloud" href="/record?id=00000000">MED CLOUD</a>
+      <a class="chip" href="/ar">AR</a>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="container">
+      <div class="card page">
+        <div class="page__head">
+          <div>
+            <h2 class="h2">Ask the assistant</h2>
+            <p class="muted">ID: <span class="id" id="patientId">—</span></p>
+          </div>
+          <a class="btn btn--soft" href="/">Back</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <section class="card sub">
+            <div class="sub__head">
+              <h3 class="h3">Symptoms (optional)</h3>
+              <p class="muted">Helps the assistant answer better.</p>
+            </div>
+
+            <textarea id="symptoms" class="textarea" rows="10" placeholder="Example: sore throat + fever for 3 days..."></textarea>
+
+            <div class="row">
+              <button class="btn btn--primary" id="saveSymptoms">Save to record</button>
+              <button class="btn btn--outline" id="loadSymptoms">Load from record</button>
+            </div>
+
+            <div id="status" class="status"></div>
+
+            <div class="note">
+              <span class="note__spark" aria-hidden="true"></span>
+              If you have severe symptoms (chest pain, severe breathing trouble), seek urgent care.
+            </div>
+          </section>
+
+          <section class="card sub">
+            <div class="sub__head">
+              <h3 class="h3">Chat</h3>
+              <p class="muted">Ask a question and receive a response.</p>
+            </div>
+
+            <div class="chat" id="chatLog"></div>
+
+            <form class="chat__form" id="chatForm">
+              <input class="input chat__input" id="chatInput" placeholder="Type your question..." autocomplete="off">
+              <button class="btn btn--primary" type="submit">Send</button>
+            </form>
+
+            <div class="tiny muted">
+              This tool provides general information only (demo).
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner"><span>© 2026 SPARK</span></div>
+  </footer>
+
+  <script src="Style/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPARK • Patient</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style/main.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__brand">
+      <div class="mark" aria-hidden="true"><span class="mark__dot"></span></div>
+      <div class="brand">
+        <div class="brand__name">SPARK</div>
+        <div class="brand__tag">Patient Portal</div>
+      </div>
+    </div>
+    <div class="nav__actions">
+      <a class="chip" href="/">← Home</a>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="h2" id="title">Patient • Sign Up</h2>
+        <p class="muted" id="subtitle">Create your account (demo).</p>
+      </div>
+
+      <div class="grid2">
+        <section class="card page">
+          <div class="tool__top">
+            <div class="icon icon--blue" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s-7-4.4-7-11a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 6.6-7 11-7 11Z"
+                      fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="pill">Patient</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <form id="patientForm" class="stack">
+            <label class="tiny muted">Full Name</label>
+            <input class="input" id="pName" placeholder="Your name" autocomplete="name">
+
+            <label class="tiny muted">Email</label>
+            <input class="input" id="pEmail" placeholder="name@email.com" autocomplete="email">
+
+            <label class="tiny muted">Password</label>
+            <input class="input" id="pPass" type="password" placeholder="••••••••" autocomplete="new-password">
+
+            <div class="divider"></div>
+
+            <div class="tiny muted" style="font-weight:800;">Choose Plan</div>
+
+            <div class="plan-grid" role="radiogroup" aria-label="Plans">
+              <label class="plan">
+                <input type="radio" name="plan" value="free" checked>
+                <div class="plan__name">Free</div>
+                <div class="plan__desc">Basic record access + tools demo</div>
+              </label>
+
+              <label class="plan plan--plus">
+                <input type="radio" name="plan" value="plus_monthly">
+                <div class="plan__name">Plus • Monthly</div>
+                <div class="plan__desc">Doctor chat + booking + better analysis</div>
+              </label>
+
+              <label class="plan plan--best">
+                <input type="radio" name="plan" value="plus_yearly">
+                <div class="plan__name">Plus • Yearly</div>
+                <div class="plan__desc">Best value • All Plus features</div>
+                <span class="plan__badge">Best Value</span>
+              </label>
+            </div>
+
+            <div class="note">
+              <span class="note__spark"></span>
+              Plus features: doctor communication, appointment booking, more accurate analysis, and expanded 3D pain details.
+            </div>
+
+            <div class="row">
+              <button class="btn btn--primary" type="submit" id="submitBtn">Create Account</button>
+              <a class="btn btn--outline" href="/auth_patient?mode=login">I already have an account</a>
+            </div>
+
+            <div class="status" id="status"></div>
+          </form>
+        </section>
+
+        <aside class="card sub">
+          <h3 class="h3">What you get</h3>
+          <p class="muted">
+            This is a demo signup UI. After creating an account, you can open MED CLOUD and MED SEARCH AI.
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="pill" style="display:inline-flex;">Plus</div>
+          <ul class="muted" style="margin:10px 0 0; line-height:1.7; font-weight:600;">
+            <li>Chat with a Doctor</li>
+            <li>Book appointments</li>
+            <li>More accurate AI guidance</li>
+            <li>Expanded 3D pain details</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <script src="Style/main.js"></script>
+</body>
+</html>

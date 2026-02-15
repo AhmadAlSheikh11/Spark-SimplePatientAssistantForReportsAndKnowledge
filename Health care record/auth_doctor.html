@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPARK • Doctor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Style/main.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__brand">
+      <div class="mark" aria-hidden="true"><span class="mark__dot"></span></div>
+      <div class="brand">
+        <div class="brand__name">SPARK</div>
+        <div class="brand__tag">Doctor Verification</div>
+      </div>
+    </div>
+    <div class="nav__actions">
+      <a class="chip" href="/">← Home</a>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="h2" id="title">Doctor • Sign Up</h2>
+        <p class="muted" id="subtitle">Provide details to verify your medical profile (demo).</p>
+      </div>
+
+      <div class="grid2">
+        <section class="card page">
+          <div class="tool__top">
+            <div class="icon icon--teal" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 7h4M12 5v4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                <path d="M7 21h10a2 2 0 0 0 2-2v-5a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v5a2 2 0 0 0 2 2Z"
+                      fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="pill">Doctor</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <form id="doctorForm" class="stack">
+            <label class="tiny muted">Full Name (as in license)</label>
+            <input class="input" id="dName" placeholder="Dr. Full Name" autocomplete="name" required>
+
+            <label class="tiny muted">Email</label>
+            <input class="input" id="dEmail" placeholder="doctor@email.com" autocomplete="email" required>
+
+            <label class="tiny muted">Phone Number</label>
+            <input class="input" id="dPhone" placeholder="+970 5x xxx xxxx" inputmode="tel" required>
+
+            <div class="divider"></div>
+
+            <label class="tiny muted">Medical License Number</label>
+            <input class="input" id="dLicense" placeholder="License ID / Registration No." required>
+
+            <label class="tiny muted">Issuing Authority</label>
+            <input class="input" id="dAuthority" placeholder="Ministry / Medical Council" required>
+
+            <label class="tiny muted">Country / City</label>
+            <input class="input" id="dLocation" placeholder="Palestine, Hebron" required>
+
+            <label class="tiny muted">Specialty</label>
+            <input class="input" id="dSpec" placeholder="Cardiology, ENT, ..." required>
+
+            <label class="tiny muted">Years of Experience</label>
+            <input class="input" id="dYears" placeholder="e.g., 5" inputmode="numeric" required>
+
+            <label class="tiny muted">Clinic / Hospital Name (optional)</label>
+            <input class="input" id="dWork" placeholder="Workplace name (optional)">
+
+            <div class="divider"></div>
+
+            <label class="tiny muted">Password</label>
+            <input class="input" id="dPass" type="password" placeholder="••••••••" autocomplete="new-password" required>
+
+            <label class="tiny muted">Confirm Password</label>
+            <input class="input" id="dPass2" type="password" placeholder="••••••••" autocomplete="new-password" required>
+
+            <label class="tiny muted">Verification Note (optional)</label>
+            <textarea class="textarea" id="dNote" rows="3" placeholder="Any additional info for verification…"></textarea>
+
+            <label class="checkline">
+              <input type="checkbox" id="dAgree" required>
+              <span class="muted">
+                I confirm the information is correct and I understand verification is required to activate doctor features.
+              </span>
+            </label>
+
+            <div class="row">
+              <button class="btn btn--primary" type="submit" id="submitBtn">Submit for Verification</button>
+              <a class="btn btn--outline" href="/auth_doctor?mode=login">Login instead</a>
+            </div>
+
+            <div class="status" id="status"></div>
+          </form>
+        </section>
+
+        <aside class="card sub">
+          <h3 class="h3">Verification (Demo)</h3>
+          <p class="muted">
+            This form collects more details to ensure the profile looks like a real doctor verification process.
+          </p>
+
+          <div class="note">
+            <span class="note__spark"></span>
+            Later we can add: ID upload, license document upload, OTP phone/email, and admin approval dashboard.
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="pill" style="display:inline-flex;">Why so many fields?</div>
+          <p class="muted" style="margin-top:10px;">
+            To increase trust and reduce fake accounts: license number, authority, location, specialty, and experience.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <script src="Style/main.js"></script>
+</body>
+</html>
